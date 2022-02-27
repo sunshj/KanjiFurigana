@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汉字标注假名</title>
+    <link rel="shortcut icon" href="static/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/js/kuroshiro.min.js"></script>
+    <script src="static/js/kuroshiro-analyzer-kuromoji.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="main">
+        <h3 class="main-title"><span>汉字标注假名</span></h3>
+
+        <fieldset style="max-width: 600px;">
+            <legend>输入日文</legend>
+            <textarea id="input" rows="10" cols="50" placeholder="请输入或直接贴上日文，点击转换后会自动生成HTML标签"></textarea>
+        </fieldset>
+
+        <div>
+            <button id="clear">清空</button>
+            <button id="convert">转换</button>
+        </div>
+
+        <div>
+            <fieldset>
+                <legend>Ruby 格式</legend>
+                <textarea id="RubyOut" rows="10" cols="50"></textarea>
+            </fieldset>
+
+            <fieldset style="min-height: 100px">
+                <legend>HTML 显示</legend>
+                <div id="HTMLOut"></div>
+            </fieldset>
+        </div>
+    </div>
+    <footer>
+        <!-- 版权信息 -->
+        <span>Copyright
+            &nbsp;2021-<span id="year"></span>&nbsp;<a href="//sunshj.top" target="blank" title="个人主页">sunshj.top</a>
+        </span>
+    </footer>
+
+    <script src="static/js/handle.js"></script>
+
+</body>
+
+</html>
