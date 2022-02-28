@@ -12,19 +12,28 @@ let kuroshiro = new Kuroshiro();
 kuroshiro.init(new KuromojiAnalyzer({
     dictPath: "static/dict/"
 }))
-convert.addEventListener('click', function () {
-    kuroshiro.convert(input.value, {
-        mode: "furigana",
-        to: "hiragana"
-    }).then(function (converted) {
-        RubyOut.value = converted;
-        // 将converted插入到HTMLOut的div中
-        HTMLOut.innerHTML = converted;
-    });
+
+input.addEventListener('input', function () {
+    if (input.value.length > 0 && (input.value.replace(/(^\s*)|(\s*$)/g, "") != "")) {
+        convert.disabled = false;
+        convert.addEventListener('click', function () {
+            kuroshiro.convert(input.value, {
+                mode: "furigana",
+                to: "hiragana"
+            }).then(function (converted) {
+                RubyOut.value = converted.replace(/(^\s*)|(\s*$)/g, "");
+                HTMLOut.innerHTML = converted;
+                alertmess('转换成功');
+            });
+        });
+    } else {
+        convert.disabled = true;
+    }
 });
+
 clear.addEventListener('click', function () {
     input.value = '';
     RubyOut.value = '';
     HTMLOut.innerHTML = '';
+    alertmess('已清空');
 });
-

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="static/css/style.css">
     <script src="static/js/kuroshiro.min.js"></script>
     <script src="static/js/kuroshiro-analyzer-kuromoji.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 
 </head>
 
@@ -26,10 +27,12 @@
         <div>
             <button id="clear">清空</button>
             <button id="convert">转换</button>
+            <button id="copy">复制</button>
         </div>
+        <div id="alertmess"></div>
 
         <div>
-            <fieldset>
+            <fieldset class="Ruby">
                 <legend>Ruby 格式</legend>
                 <textarea id="RubyOut" rows="10" cols="50"></textarea>
             </fieldset>
@@ -48,6 +51,7 @@
     </footer>
 
     <script src="static/js/handle.js"></script>
+    <script src="static/js/utils.js"></script>
 
 </body>
 
