@@ -2,7 +2,6 @@ let input = document.getElementById('input');
 let RubyOut = document.getElementById('RubyOut');
 let HTMLOut = document.getElementById('HTMLOut');
 let convert = document.getElementById('convert');
-let clear = document.getElementById('clear');
 let year = document.getElementById("year");
 year.innerHTML = new Date().getFullYear();
 
@@ -29,11 +28,4 @@ input.addEventListener('input', function () {
     } else {
         convert.disabled = true;
     }
-});
-
-clear.addEventListener('click', function () {
-    input.value = '';
-    RubyOut.value = '';
-    HTMLOut.innerHTML = '';
-    alertmess('已清空');
 });

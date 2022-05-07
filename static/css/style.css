@@ -3,51 +3,83 @@
     padding: 0;
 }
 
-.main {
-    width: 100%;
+html,
+body {
     height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+header {
+    flex: 0 0 auto;
+}
+
+
+marquee {
+    display: block;
+    background: linear-gradient(90deg, #53c9ffd5, #ff6dc0, #ffed4a, #53c9ffd5);
+    position: relative;
+    font-weight: bold;
+    font-family: "Microsoft YaHei";
+    background-size: 400%;
+    color: white;
+    padding: 3px;
+    animation: animate 15s linear infinite;
+
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 400%;
+    }
+}
+
+.main {
+    flex: 1 0 auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.main-title {
-    font-weight: bold;
-    margin: 10px;
-    margin-top: 10px;
-    position: relative;
-    padding: 0 65px;
-    text-align: center;
-}
-
-.main-title:before {
-    position: absolute;
-    top: calc(50% - 1px);
-    left: 0;
-    width: 100%;
-    height: 2px;
-    content: '';
-    background: #000;
-}
-
-.main-title span {
-    position: relative;
-    padding: 0 1em;
-    background: #fff;
-}
-
 textarea {
-    max-width: 600px;
+    max-width: 400px;
     max-height: 200px;
     font-size: 16px;
     resize: none;
     width: 100%;
     height: 100%;
-    margin: 0;
-    padding: 0;
     border: none;
     outline: none;
+}
+
+/* 滚动条美化 */
+textarea::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+
+}
+
+textarea::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background-color: #c3c3c3;
+
+}
+
+textarea::-webkit-scrollbar-track {
+    background-color: transparent;
 }
 
 fieldset {
@@ -55,6 +87,7 @@ fieldset {
     margin: 10px;
     border: 1px solid #cccccc;
     border-radius: 4px;
+    max-width: 400px;
 
 }
 
@@ -132,11 +165,10 @@ fieldset legend {
 }
 
 footer {
-    position: relative;
-    bottom: 0;
+    flex: 0 0 auto;
     width: 100%;
     height: 30px;
-    background-color: #f5f5f5;
+    background: #f5f5f5;
     text-align: center;
     line-height: 30px;
     font-size: 14px;
@@ -152,8 +184,6 @@ footer a {
 #alertmess {
     position: fixed;
     top: 25%;
-    left: 45%;
-    right: 45%;
     max-width: 100px;
     border-radius: 8px;
     padding: 10px 10px;
@@ -163,11 +193,4 @@ footer a {
     text-align: center;
     z-index: 999;
     display: none;
-}
-
-@media screen and (max-width: 768px) {
-    #alertmess {
-        left: 35%;
-        right: 35%;
-    }
 }
